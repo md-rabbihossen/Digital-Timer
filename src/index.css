@@ -764,3 +764,63 @@ kbd {
     padding: 4px 8px; /* Further adjust button padding */
   }
 }
+
+/* Progress bar fixes for mobile */
+@media screen and (max-width: 768px) {
+  .time-tracker {
+    position: static;
+    width: 90%;
+    margin: 20px auto;
+    padding: 15px;
+    transform: none;
+  }
+
+  .chart-container {
+    width: 100%;
+    overflow-x: hidden;
+    margin: 15px 0;
+  }
+
+  /* Ensure progress bars are visible */
+  .progress-bar {
+    width: 100%;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px 0;
+  }
+
+  .progress-fill {
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.3s ease;
+  }
+
+  /* Stats container adjustments */
+  .stats-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .stat-box {
+    flex: 1 1 calc(50% - 10px);
+    min-width: 120px;
+  }
+}
+
+/* Additional fixes for very small screens */
+@media screen and (max-width: 380px) {
+  .stats-container {
+    flex-direction: column;
+  }
+
+  .stat-box {
+    width: 100%;
+  }
+
+  .progress-bar {
+    height: 15px;
+  }
+}
