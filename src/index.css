@@ -6,14 +6,14 @@ body {
   overflow-x: hidden;
   overflow-y: hidden;
   margin: 0;
-  font-family: 'Karla', sans-serif;
+  font-family: "Karla", sans-serif;
 }
 
 .current-time {
   position: fixed;
   top: 20px;
   right: 20px;
-  font-family: 'Karla', sans-serif;
+  font-family: "Karla", sans-serif;
   font-size: 24px;
   font-weight: bold;
   text-align: center;
@@ -34,7 +34,7 @@ body {
 #clock {
   font-size: 150px;
   text-align: center;
-  font-family: 'Karla', sans-serif;
+  font-family: "Karla", sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -51,7 +51,7 @@ body {
   padding: 8px;
   border: 1px solid;
   border-radius: 4px;
-  font-family: 'Karla', sans-serif;
+  font-family: "Karla", sans-serif;
   text-align: center;
   outline: none;
 }
@@ -68,8 +68,11 @@ body {
   margin-top: 20px;
 }
 
-#start-btn, #pause-btn, #reset-btn, #settings-btn {
-  font-family: 'Karla', sans-serif;
+#start-btn,
+#pause-btn,
+#reset-btn,
+#settings-btn {
+  font-family: "Karla", sans-serif;
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -86,7 +89,10 @@ body {
   justify-content: center;
 }
 
-#start-btn:hover, #pause-btn:hover, #reset-btn:hover, #settings-btn:hover {
+#start-btn:hover,
+#pause-btn:hover,
+#reset-btn:hover,
+#settings-btn:hover {
   transform: scale(1.2);
 }
 
@@ -140,11 +146,11 @@ select {
   #clock {
     font-size: 100px;
   }
-  
+
   #am-pm {
     font-size: 10px;
   }
-  
+
   .current-time {
     font-size: 20px;
   }
@@ -154,11 +160,11 @@ select {
   #clock {
     font-size: 80px;
   }
-  
+
   #am-pm {
     font-size: 10px;
   }
-  
+
   .current-time {
     font-size: 20px;
   }
@@ -234,7 +240,7 @@ select {
   border: 1px solid;
   border-radius: 4px;
   background-color: transparent;
-  font-family: 'Karla', sans-serif;
+  font-family: "Karla", sans-serif;
   outline: none;
 }
 
@@ -433,13 +439,19 @@ select {
 }
 
 /* Add hover effect to buttons */
-#start-btn, #pause-btn, #reset-btn, #settings-btn {
+#start-btn,
+#pause-btn,
+#reset-btn,
+#settings-btn {
   position: relative;
   overflow: hidden;
 }
 
-#start-btn::after, #pause-btn::after, #reset-btn::after, #settings-btn::after {
-  content: '';
+#start-btn::after,
+#pause-btn::after,
+#reset-btn::after,
+#settings-btn::after {
+  content: "";
   position: absolute;
   top: 50%;
   left: 50%;
@@ -451,7 +463,10 @@ select {
   transition: width 0.3s, height 0.3s;
 }
 
-#start-btn:hover::after, #pause-btn:hover::after, #reset-btn:hover::after, #settings-btn:hover::after {
+#start-btn:hover::after,
+#pause-btn:hover::after,
+#reset-btn:hover::after,
+#settings-btn:hover::after {
   width: 200%;
   height: 200%;
 }
@@ -541,7 +556,7 @@ select {
   background: transparent;
   font-size: 16px;
   text-align: center;
-  font-family: 'Karla', sans-serif;
+  font-family: "Karla", sans-serif;
 }
 
 .time-input-group input::-webkit-inner-spin-button,
@@ -550,7 +565,7 @@ select {
   margin: 0;
 }
 
-.time-input-group input[type=number] {
+.time-input-group input[type="number"] {
   -moz-appearance: textfield;
 }
 
@@ -614,7 +629,7 @@ kbd {
   padding: 2px 6px;
   font-family: monospace;
   font-size: 0.9em;
-  box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 /* Add to your existing styles */
@@ -708,4 +723,44 @@ kbd {
   align-items: center;
   justify-content: center;
   gap: 5px;
+}
+
+/* Add media queries for smaller screens */
+@media (max-width: 768px) {
+  #clock {
+    font-size: 80px; /* Adjust clock size */
+  }
+
+  .current-time {
+    font-size: 18px; /* Adjust current time size */
+  }
+
+  .todo-container, .time-tracker {
+    width: 100%; /* Make containers full width */
+    padding: 10px; /* Adjust padding */
+  }
+
+  .buttons button {
+    font-size: 12px; /* Adjust button font size */
+    padding: 6px 12px; /* Adjust button padding */
+  }
+}
+
+@media (max-width: 576px) {
+  #clock {
+    font-size: 60px; /* Further adjust clock size */
+  }
+
+  .current-time {
+    font-size: 16px; /* Further adjust current time size */
+  }
+
+  .todo-container, .time-tracker {
+    padding: 5px; /* Further adjust padding */
+  }
+
+  .buttons button {
+    font-size: 10px; /* Further adjust button font size */
+    padding: 4px 8px; /* Further adjust button padding */
+  }
 }

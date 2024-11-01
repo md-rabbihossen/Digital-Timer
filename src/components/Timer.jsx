@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import toast from 'react-hot-toast';
 import alarmSound from '../assets/Digital Timer.mp3';
 
-function Clock({ fontColor, backgroundColor, showSeconds, soundEnabled, onSettingsClick, onSessionComplete }) {
+function Timer({ fontColor, backgroundColor, showSeconds, soundEnabled, onSettingsClick, onSessionComplete }) {
   const [timeLeft, setTimeLeft] = useState(30);
   const [seconds, setSeconds] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
@@ -210,17 +210,10 @@ function Clock({ fontColor, backgroundColor, showSeconds, soundEnabled, onSettin
   }, [isPaused]);
 
   return (
-    <div id="clock" style={{ color: fontColor }}>
-      <div 
-        id="timer" 
-        style={{ 
-          fontSize: '150px',
-          color: fontColor 
-        }}
-      >
+    <div id="clock" style={{ color: fontColor, fontSize: 'clamp(50px, 10vw, 150px)' }}>
+      <div id="timer" style={{ color: fontColor }}>
         {formatTime()}
       </div>
-      
       <div className="time-input-container">
         <div className="time-input-group">
           <input
@@ -235,7 +228,9 @@ function Clock({ fontColor, backgroundColor, showSeconds, soundEnabled, onSettin
               color: fontColor,
               borderColor: fontColor,
               backgroundColor,
-              caretColor: fontColor
+              caretColor: fontColor,
+              width: '50px',
+              fontSize: 'clamp(12px, 2vw, 16px)'
             }}
           />
           <label style={{ color: fontColor }}>h</label>
@@ -253,31 +248,25 @@ function Clock({ fontColor, backgroundColor, showSeconds, soundEnabled, onSettin
               color: fontColor,
               borderColor: fontColor,
               backgroundColor,
-              caretColor: fontColor
+              caretColor: fontColor,
+              width: '50px',
+              fontSize: 'clamp(12px, 2vw, 16px)'
             }}
           />
           <label style={{ color: fontColor }}>m</label>
         </div>
       </div>
-
       <div className="buttons">
-        <button id="start-btn" onClick={startTimer} style={{ color: fontColor }}>
+        <button id="start-btn" onClick={startTimer} style={{ color: fontColor, fontSize: 'clamp(12px, 2vw, 16px)' }}>
           {isPaused ? <><i className="fas fa-play"></i> Resume</> : <><i className="fas fa-play"></i> Start</>}
         </button>
-        <button id="pause-btn" onClick={pauseTimer} style={{ color: fontColor }}>
+        <button id="pause-btn" onClick={pauseTimer} style={{ color: fontColor, fontSize: 'clamp(12px, 2vw, 16px)' }}>
           <i className="fas fa-pause"></i> Pause
         </button>
-        <button id="reset-btn" onClick={resetTimer} style={{ color: "#37352F" }}>
+        <button id="reset-btn" onClick={resetTimer} style={{ color: "#37352F", fontSize: 'clamp(12px, 2vw, 16px)' }}>
           <i className="fas fa-redo"></i> Reset
         </button>
-        <button 
-          id="settings-btn" 
-          onClick={onSettingsClick} 
-          style={{ 
-            color: fontColor,
-            fontSize: '16px'  // Increased from default
-          }}
-        >
+        <button id="settings-btn" onClick={onSettingsClick} style={{ color: fontColor, fontSize: 'clamp(12px, 2vw, 16px)' }}>
           <i className="fas fa-cog"></i>
         </button>
       </div>
@@ -285,4 +274,4 @@ function Clock({ fontColor, backgroundColor, showSeconds, soundEnabled, onSettin
   );
 }
 
-export default Clock;
+export default Timer;

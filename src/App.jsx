@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import Clock from './components/Clock';
+import Timer from './components/Timer';
 import CurrentTime from './components/CurrentTime';
 import SettingsModal from './components/SettingsModal';
 import TodoList from './components/TodoList';
@@ -11,7 +11,10 @@ function App() {
   const [showSettings, setShowSettings] = useState(false);
   const [backgroundColor, setBackgroundColor] = useState(localStorage.getItem("backgroundColor") || "#FFFFFF");
   const [fontColor, setFontColor] = useState(localStorage.getItem("fontColor") || "#37352F");
-  const [showSeconds, setShowSeconds] = useState(localStorage.getItem("showSeconds") === "true");
+  const [showSeconds, setShowSeconds] = useState(() => {
+    const storedValue = localStorage.getItem("showSeconds");
+    return storedValue === null ? true : storedValue === "true";
+  });
   const [soundEnabled, setSoundEnabled] = useState(localStorage.getItem("soundEnabled") !== "false");
   const [timeTrackerUpdate, setTimeTrackerUpdate] = useState(0);
 
@@ -45,7 +48,7 @@ function App() {
       />
       <div className="timer-container">
         <CurrentTime fontColor={fontColor} />
-        <Clock 
+        <Timer 
           fontColor={fontColor} 
           backgroundColor={backgroundColor}
           showSeconds={showSeconds}

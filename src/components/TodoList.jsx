@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
-import { PlusCircleIcon, TrashIcon } from '@heroicons/react/24/outline';
+import { PlusCircleIcon } from '@heroicons/react/24/outline';
 import { v4 as uuidv4 } from 'uuid';
 
-function TodoList({ fontColor, backgroundColor }) {
+function TodoList({ 
+  fontColor = '#000000', 
+  backgroundColor = '#FFFFFF' 
+}) {
   const [todos, setTodos] = useState(() => {
     const savedTodos = localStorage.getItem('todos');
     return savedTodos ? JSON.parse(savedTodos) : [];
@@ -99,7 +102,7 @@ function TodoList({ fontColor, backgroundColor }) {
       </form>
 
       <DragDropContext onDragEnd={handleDragEnd}>
-        <Droppable droppableId="todos">
+        <Droppable droppableId="todos" type="TASK">
           {(provided) => (
             <ul
               {...provided.droppableProps}
@@ -107,7 +110,12 @@ function TodoList({ fontColor, backgroundColor }) {
               className="todo-list"
             >
               {todos.map((todo, index) => (
-                <Draggable key={todo.id} draggableId={todo.id} index={index}>
+                <Draggable 
+                  key={todo.id} 
+                  draggableId={todo.id} 
+                  index={index}
+                  type="TASK"
+                >
                   {(provided, snapshot) => (
                     <li
                       ref={provided.innerRef}

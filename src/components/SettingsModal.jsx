@@ -1,4 +1,4 @@
-function SettingsModal({ onClose, backgroundColor, fontColor, onSave, showSeconds, soundEnabled }) {
+function SettingsModal({ onClose, backgroundColor, fontColor, onSave, showSeconds = true, soundEnabled }) {
   const handleSave = () => {
     const newBgColor = document.getElementById("background-color").value;
     const newFontColor = document.getElementById("font-color").value;
